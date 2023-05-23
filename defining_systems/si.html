@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The International System of Units (SI) &mdash; mp-units 0.8.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Angular Units" href="angular_units.html" />
+    <link rel="prev" title="International System of Quantities (ISQ)" href="isq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mp-units
+          </a>
+              <div class="version">
+                0.8.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../framework.html">Framework Basics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../defining_systems.html">Defining Systems</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="isq.html">International System of Quantities (ISQ)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The International System of Units (SI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#base-units">Base units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#derived-units">Derived units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unit-prefixes">Unit prefixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-definitions-for-names-units">Other definitions for names units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-constants">Defining constants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="angular_units.html">Angular Units</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../use_cases.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design.html">Design Deep Dive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Installation And Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/core.html">Core Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/random.html">Random</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mp-units</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../defining_systems.html">Defining Systems</a></li>
+      <li class="breadcrumb-item active">The International System of Units (SI)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/defining_systems/si.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-international-system-of-units-si">
+<h1>The International System of Units (SI)<a class="headerlink" href="#the-international-system-of-units-si" title="Permalink to this heading"></a></h1>
+<p>The <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> system is defined in the <a class="reference internal" href="../references.html#sibrochure" id="id1"><span>[SIBrochure]</span></a> and standardizes units for quantities provided in
+the <a class="reference internal" href="../glossary.html#term-ISQ"><span class="xref std std-term">ISQ</span></a> system:</p>
+<blockquote>
+<div><p>The SI is a consistent system of units for use in all aspects of life, including international
+trade, manufacturing, security, health and safety, protection of the environment, and in the
+basic science that underpins all of these. The system of quantities underlying the SI and the
+equations relating them are based on the present description of nature and are familiar to all
+scientists, technologists and engineers.</p>
+</div></blockquote>
+<p>As the <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> is defined on top of the <a class="reference internal" href="../glossary.html#term-ISQ"><span class="xref std std-term">ISQ</span></a> the C++ namespace for all of its definitions
+is <code class="docutils literal notranslate"><span class="pre">units::isq::si</span></code>.</p>
+<section id="base-units">
+<h2>Base units<a class="headerlink" href="#base-units" title="Permalink to this heading"></a></h2>
+<p>Even though from 2019 the <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> system is defined in terms of the <a class="reference internal" href="#defining-constants">Defining constants</a>,
+base units still are really important. As the <a class="reference internal" href="../references.html#sibrochure" id="id2"><span>[SIBrochure]</span></a> states:</p>
+<blockquote>
+<div><p>Prior to the definitions adopted in 2018, the SI was defined through seven base units from
+which the derived units were constructed as products of powers of the base units. Defining
+the SI by fixing the numerical values of seven defining constants has the effect that this
+distinction is, in principle, not needed, since all units, base as well as derived units, may be
+constructed directly from the defining constants. Nevertheless, the concept of base and
+derived units is maintained because it is useful and historically well established, noting
+also that the ISO/IEC 80000 series of Standards specify base and derived quantities which
+necessarily correspond to the SI base and derived units defined here.</p>
+</div></blockquote>
+<p>The base units and quantities of the <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> system are defined as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">units</span><span class="o">::</span><span class="nn">isq</span><span class="o">::</span><span class="nn">si</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">second</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;s&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">dim_time</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">dim_time</span><span class="o">&lt;</span><span class="n">second</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">UnitOf</span><span class="o">&lt;</span><span class="n">dim_time</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">dim_time</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">metre</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">metre</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;m&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">dim_length</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">dim_length</span><span class="o">&lt;</span><span class="n">metre</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">UnitOf</span><span class="o">&lt;</span><span class="n">dim_length</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">dim_length</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">gram</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">gram</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;g&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">kilogram</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">prefixed_unit</span><span class="o">&lt;</span><span class="n">kilogram</span><span class="p">,</span><span class="w"> </span><span class="n">kilo</span><span class="p">,</span><span class="w"> </span><span class="n">gram</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">dim_mass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">dim_mass</span><span class="o">&lt;</span><span class="n">kilogram</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">UnitOf</span><span class="o">&lt;</span><span class="n">dim_mass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">dim_mass</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">ampere</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">ampere</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">dim_electric_current</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">dim_electric_current</span><span class="o">&lt;</span><span class="n">ampere</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">UnitOf</span><span class="o">&lt;</span><span class="n">dim_electric_current</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">electric_current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">dim_electric_current</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">kelvin</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">kelvin</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;K&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">dim_thermodynamic_temperature</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">dim_thermodynamic_temperature</span><span class="o">&lt;</span><span class="n">kelvin</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">UnitOf</span><span class="o">&lt;</span><span class="n">dim_thermodynamic_temperature</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">thermodynamic_temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">dim_thermodynamic_temperature</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">mole</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">mole</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;mol&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">dim_amount_of_substance</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">dim_amount_of_substance</span><span class="o">&lt;</span><span class="n">mole</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">UnitOf</span><span class="o">&lt;</span><span class="n">dim_amount_of_substance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">amount_of_substance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">dim_amount_of_substance</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">candela</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_unit</span><span class="o">&lt;</span><span class="n">candela</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cd&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">dim_luminous_intensity</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">isq</span><span class="o">::</span><span class="n">dim_luminous_intensity</span><span class="o">&lt;</span><span class="n">candela</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">UnitOf</span><span class="o">&lt;</span><span class="n">dim_luminous_intensity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">luminous_intensity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="o">&lt;</span><span class="n">dim_luminous_intensity</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="derived-units">
+<h2>Derived units<a class="headerlink" href="#derived-units" title="Permalink to this heading"></a></h2>
+<p>The <a class="reference internal" href="../references.html#sibrochure" id="id3"><span>[SIBrochure]</span></a> states:</p>
+<blockquote>
+<div><p>Derived units are defined as products of powers of the base units. When the numerical
+factor of this product is one, the derived units are called coherent derived units. The base
+and coherent derived units of the SI form a coherent set, designated the set of coherent SI
+units. The word “coherent” here means that equations between the numerical values of
+quantities take exactly the same form as the equations between the quantities themselves.
+Some of the coherent derived units in the SI are given special names. … Together with the
+seven base units they form the core of the set of SI units. All other SI units are combinations
+of some of these 29 units.</p>
+</div></blockquote>
+</section>
+<section id="unit-prefixes">
+<h2>Unit prefixes<a class="headerlink" href="#unit-prefixes" title="Permalink to this heading"></a></h2>
+<p>According to <a class="reference internal" href="../references.html#sibrochure" id="id4"><span>[SIBrochure]</span></a>:</p>
+<blockquote>
+<div><p>Prefixes may be used with any of the 29 SI units with special names with
+the exception of the base unit kilogram.</p>
+</div></blockquote>
+<p>Here is a complete list of all the <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> prefixes supported by the library:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">si</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">yocto</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">yocto</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;y&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-24</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">zepto</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">zepto</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-21</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">atto</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">atto</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-18</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">femto</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">femto</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-15</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">pico</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">pico</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;p&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-12</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">nano</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">nano</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;n&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-9</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">micro</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">micro</span><span class="p">,</span><span class="w"> </span><span class="n">basic_symbol_text</span><span class="p">{</span><span class="s">&quot;</span><span class="se">\u00b5</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;u&quot;</span><span class="p">},</span>
+<span class="w">                                               </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-6</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">milli</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">milli</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;m&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-3</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">centi</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">centi</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">deci</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">deci</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;d&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">deca</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">deca</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;da&quot;</span><span class="p">,</span><span class="w">            </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">hecto</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">hecto</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;h&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">kilo</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">kilo</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;k&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">mega</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">mega</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;M&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">giga</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">giga</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;G&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">tera</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">tera</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;T&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">peta</span><span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">peta</span><span class="p">,</span><span class="w">  </span><span class="s">&quot;P&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">exa</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">exa</span><span class="p">,</span><span class="w">   </span><span class="s">&quot;E&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">zetta</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">zetta</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Z&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">yotta</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">prefix</span><span class="o">&lt;</span><span class="n">yotta</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Y&quot;</span><span class="p">,</span><span class="w">             </span><span class="n">mag_power</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="other-definitions-for-names-units">
+<h2>Other definitions for names units<a class="headerlink" href="#other-definitions-for-names-units" title="Permalink to this heading"></a></h2>
+<p>For all of the above units the library also provides:</p>
+<ul>
+<li><p>prefixed versions using SI prefixes:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">units</span><span class="o">::</span><span class="nn">isq</span><span class="o">::</span><span class="nn">si</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">millisecond</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">prefixed_unit</span><span class="o">&lt;</span><span class="n">millisecond</span><span class="p">,</span><span class="w"> </span><span class="n">milli</span><span class="p">,</span><span class="w"> </span><span class="n">second</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="../framework/quantities.html#quantity-references-experimental"><span class="std std-ref">Quantity References (Experimental)</span></a>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">units</span><span class="o">::</span><span class="nn">isq</span><span class="o">::</span><span class="nn">si</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">time_references</span><span class="w"> </span><span class="p">{</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reference</span><span class="o">&lt;</span><span class="n">dim_time</span><span class="p">,</span><span class="w"> </span><span class="n">second</span><span class="o">&gt;</span><span class="p">{};</span>
+
+<span class="p">}</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">references</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">time_references</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="../framework/quantities.html#unit-specific-aliases-experimental"><span class="std std-ref">Unit-Specific Aliases (Experimental)</span></a>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">units</span><span class="o">::</span><span class="nn">aliases</span><span class="o">::</span><span class="nn">isq</span><span class="o">::</span><span class="nn">si</span><span class="o">::</span><span class="kr">inline</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">units</span><span class="o">::</span><span class="n">isq</span><span class="o">::</span><span class="n">si</span><span class="o">::</span><span class="n">time</span><span class="o">&lt;</span><span class="n">units</span><span class="o">::</span><span class="n">isq</span><span class="o">::</span><span class="n">si</span><span class="o">::</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="../framework/quantities.html#user-defined-literals-experimental"><span class="std std-ref">User Defined Literals (Experimental)</span></a>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">units</span><span class="o">::</span><span class="nn">isq</span><span class="o">::</span><span class="nn">si</span><span class="o">::</span><span class="kr">inline</span><span class="w"> </span><span class="nn">literals</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="n">_q_s</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">gsl_ExpectsAudit</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">in_range</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">l</span><span class="p">));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">time</span><span class="o">&lt;</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">l</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">operator</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="n">_q_s</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">time</span><span class="o">&lt;</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">l</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>For some of the units, when accepted by the <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a>, other non-standard scaled versions are also provided:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">units</span><span class="o">::</span><span class="nn">isq</span><span class="o">::</span><span class="nn">si</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">minute</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_scaled_unit</span><span class="o">&lt;</span><span class="n">minute</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;min&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mag</span><span class="o">&lt;</span><span class="mi">60</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">second</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">hour</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_scaled_unit</span><span class="o">&lt;</span><span class="n">hour</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;h&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mag</span><span class="o">&lt;</span><span class="mi">60</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">minute</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">day</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">named_scaled_unit</span><span class="o">&lt;</span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mag</span><span class="o">&lt;</span><span class="mi">24</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">hour</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="defining-constants">
+<h2>Defining constants<a class="headerlink" href="#defining-constants" title="Permalink to this heading"></a></h2>
+<p><a class="reference internal" href="../references.html#sibrochure" id="id5"><span>[SIBrochure]</span></a> states that:</p>
+<blockquote>
+<div><p>The definition of the SI units is established in terms of a set of seven defining constants.
+The complete system of units can be derived from the fixed values of these defining
+constants, expressed in the units of the SI.</p>
+</div></blockquote>
+<p>Those constants are provided in the <em>units/isq/si/constants.h</em> header file as:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">units</span><span class="o">::</span><span class="nn">isq</span><span class="o">::</span><span class="nn">si</span><span class="o">::</span><span class="nn">si2019</span><span class="w"> </span><span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">hyperfine_structure_transition_frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frequency</span><span class="o">&lt;</span><span class="n">hertz</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Rep</span><span class="p">{</span><span class="mi">9&#39;192&#39;631&#39;770</span><span class="p">});</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">speed_of_light</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">speed</span><span class="o">&lt;</span><span class="n">metre_per_second</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">299&#39;792&#39;458</span><span class="p">);</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">planck_constant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">energy</span><span class="o">&lt;</span><span class="n">joule</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">6.62607015e-34</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">time</span><span class="o">&lt;</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">elementary_charge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">electric_charge</span><span class="o">&lt;</span><span class="n">coulomb</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">1.602176634e-19</span><span class="p">);</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">boltzmann_constant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">energy</span><span class="o">&lt;</span><span class="n">joule</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">1.380649e-23</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">thermodynamic_temperature</span><span class="o">&lt;</span><span class="n">kelvin</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">avogadro_constant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rep</span><span class="p">(</span><span class="mf">6.02214076e23</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">amount_of_substance</span><span class="o">&lt;</span><span class="n">mole</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">Representation</span><span class="w"> </span><span class="n">Rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span>
+<span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">luminous_efficacy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">luminous_flux</span><span class="o">&lt;</span><span class="n">lumen</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">683</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">power</span><span class="o">&lt;</span><span class="n">watt</span><span class="p">,</span><span class="w"> </span><span class="n">Rep</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note the nested <code class="xref cpp cpp-any docutils literal notranslate"><span class="pre">si2019</span></code> namespace. It is introduced in case those constants were changed/updated
+by the <a class="reference internal" href="../glossary.html#term-SI"><span class="xref std std-term">SI</span></a> in the future.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="isq.html" class="btn btn-neutral float-left" title="International System of Quantities (ISQ)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="angular_units.html" class="btn btn-neutral float-right" title="Angular Units" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018-present, Mateusz Pusz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
